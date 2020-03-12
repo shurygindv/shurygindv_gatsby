@@ -1,0 +1,29 @@
+{
+  "compilerOptions": {
+    "isolatedModules": false,
+    "strict": true,
+    "reactNamespace": "",
+    "outDir": "./dist/",
+    "sourceMap": true,
+    "esModuleInterop": true,
+    "noImplicitAny": true,
+    "noImplicitThis": true,
+    "strictNullChecks": true,
+    "module": "es6",
+    "target": "es2017",
+    "experimentalDecorators": true,
+    "moduleResolution": "node",
+    "alwaysStrict": true,
+    "jsx": "react",
+    "allowJs": true,
+    "lib": ["ES2017", "DOM"],
+    "baseUrl": "./",
+    "paths": {
+      "~features/*": ["src/features/*"],
+      "~ui/*": ["src/ui/*"]
+    },
+    "incremental": true,
+    "pretty": false
+  },
+  "include": ["src/**/*.ts", "src/**/*.tsx"]
+}
