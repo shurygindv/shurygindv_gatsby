@@ -1,21 +1,21 @@
-import React from 'react'
-import Helmet from 'react-helmet'
+import React from 'react';
+import Helmet from 'react-helmet';
 
-import { useSeoConfiguration } from '~features/site-config'
+import { useSeoConfiguration } from '~features/site-config';
 
 interface Props {
-  description?: string
-  lang?: string
-  title?: string
+  description?: string;
+  lang?: string;
+  title?: string;
 }
 
 const defaultProps = {
   lang: `en`,
   description: ``,
-}
+};
 
 export const SEO: React.FC<Props> = (props = defaultProps) => {
-  const { lang, title, meta, site } = useSeoConfiguration(props)
+  const { lang, title, meta, site } = useSeoConfiguration(props);
 
   return (
     <Helmet
@@ -23,8 +23,8 @@ export const SEO: React.FC<Props> = (props = defaultProps) => {
         lang,
       }}
       title={title}
-      titleTemplate={`%s | ${site.siteMetadata.title}`}
+      titleTemplate={`%s | ${site.title}`}
       meta={meta}
     />
-  )
-}
+  );
+};

@@ -1,9 +1,9 @@
-import React from 'react'
+import React from 'react';
 
-import { Slider } from '~ui/organisms/Slider'
+import { Slider } from '~ui/organisms/Slider';
 
 const IndexPage = () => {
-  return <Slider />
-}
+  return <Slider />;
+};
 
-export default IndexPage
+export default IndexPage;

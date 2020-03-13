@@ -1,2 +1,2 @@
-export { useSeoConfiguration } from './use-seo-configuration'
-export { useStaticSiteQuery } from './use-static-site-query'
+export { useSeoConfiguration } from './use-seo-configuration';
+export { useSiteMetadata } from './use-site-metadata';

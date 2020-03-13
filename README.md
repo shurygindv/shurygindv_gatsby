@@ -1,6 +1,3 @@
-
-
-
 ## 🧐 What's inside?
 
 Promosite,

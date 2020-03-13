@@ -1,16 +1,16 @@
-import { useStaticSiteQuery } from '.'
+import { useSiteMetadata } from '.';
 
 interface Configuration {
-  description?: string
-  lang?: string
-  title?: string
+  description?: string;
+  lang?: string;
+  title?: string;
 }
 
 export const useSeoConfiguration = (cfg: Configuration) => {
-  const { description, lang, title } = cfg
-  const site = useStaticSiteQuery()
+  const { description, lang, title } = cfg;
+  const site = useSiteMetadata();
 
-  const metaDescription = description || site.siteMetadata.description
+  const metaDescription = description || site.description;
 
   const configuration = {
     title,
@@ -40,7 +40,7 @@ export const useSeoConfiguration = (cfg: Configuration) => {
       },
       {
         name: `twitter:creator`,
-        content: site.siteMetadata.author,
+        content: site.author,
       },
       {
         name: `twitter:title`,
@@ -51,7 +51,7 @@ export const useSeoConfiguration = (cfg: Configuration) => {
         content: metaDescription,
       },
     ],
-  }
+  };
 
-  return configuration
-}
+  return configuration;
+};
