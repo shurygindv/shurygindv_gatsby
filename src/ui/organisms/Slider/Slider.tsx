@@ -1,24 +1,37 @@
 import React from 'react';
-import { useSpring } from 'react-spring';
+
+import styled from 'styled-components';
+
+import { Image } from '~ui/atoms/Image';
+
+import { useSliderImages } from './use-slider-images';
 
 interface Props {}
 
-const images = [
-  'm-1366x768',
-  'm-1600x900.jpg',
-  'm-1920x1080.jpg',
-  'm-m-1366x768',
-  'mercedes1',
-  'mercedes2.jpg',
-  'thepeninsula.jpg',
-  'ws_m_1920x1080.jpg',
-  'ws-m.jpg'
-];
+const SliderContainer = styled.section`
+  display: flex;
+  height: 350px;
+`;
+
+const SliderItem = styled.article`
+  width: 100%;
+  flex-shrink: 0;
+`;
 
 export const Slider: React.FC<Props> = props => {
+  const data = useSliderImages();
+
   return (
-    <section>
-      {images.map(fileName => )}
-    </section>
-  )
+    <SliderContainer>
+      {data.allFile.edges.map((image: any, i: number) => (
+        <SliderItem key={i}>
+          <Image
+            fluid={image.node.childImageSharp.fluid}
+            alt={image.node.base.split('.')[0]}
+            style={{'height': '300px'}}
+          />
+        </SliderItem>
+      ))}
+    </SliderContainer>
+  );
 };
