@@ -54,12 +54,15 @@ typings/
 # dotenv environment variable files
 .env*
 
-src/images/slider/*
+
 
 # gatsby files
 .cache/
 public
 
+
+src/images/slider/*
+src/images/background/*
 # Mac files
 .DS_Store
 
