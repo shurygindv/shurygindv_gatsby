@@ -1,4 +1,4 @@
 ## 🧐 What's inside?
 
-Promosite,
-A quick look at the top-level files and directories you'll see in a Gatsby project.
+⌛️ Pre-release: 05.05.2020 (EN)
+🧐 Key point: UI Effect, intro
