@@ -9,6 +9,8 @@ import { useSliderImages } from './use-slider-images';
 
 interface Props {}
 
+const COUNT = 9;
+
 const SliderContainer = styled.section`
   display: flex;
   height: 350px;
@@ -32,7 +34,7 @@ const useAnimatedStyles = () => {
 
   React.useEffect(() => {
     setTimeout(() => {
-      setActiveSlide(v => v + 1);
+      setActiveSlide(v => (v + 1) % COUNT);
     }, 5000);
   }, [activeSlide]);
 
@@ -42,6 +44,7 @@ const useAnimatedStyles = () => {
     });
   }, [activeSlide]);
 
+  console.log(activeSlide);
   return styles;
 };
 
