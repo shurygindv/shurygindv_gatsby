@@ -1,7 +1,7 @@
 import React from 'react';
 
 import styled from 'styled-components';
-import { animated, useSpring } from 'react-spring';
+import { animated, useSpring, config } from 'react-spring';
 
 import { Image } from '~ui/atoms/Image';
 
@@ -9,11 +9,11 @@ import { useSliderImages } from './use-slider-images';
 
 interface Props {}
 
-const COUNT = 9;
+const COUNT = 4;
 
 const SliderContainer = styled.section`
   display: flex;
-  height: 350px;
+  height: 400px;
 `;
 
 const SliderItem = styled.article`
@@ -24,12 +24,13 @@ const SliderItem = styled.article`
 const useAnimatedStyles = () => {
   const [activeSlide, setActiveSlide] = React.useState(0);
 
-  const [spring, setSpring] = useSpring(() => ({
-    x: 0,
-  }));
+  const props = useSpring({
+    x: activeSlide * -100,
+    config: config.slow,
+  });
 
   const styles = {
-    transform: spring.x.interpolate(v => `translate3d(${v}%,0,0)`),
+    transform: props.x.interpolate(v => `translate3d(${v}%,0,0)`),
   };
 
   React.useEffect(() => {
@@ -38,13 +39,6 @@ const useAnimatedStyles = () => {
     }, 5000);
   }, [activeSlide]);
 
-  React.useEffect(() => {
-    setSpring({
-      x: activeSlide * -100,
-    });
-  }, [activeSlide]);
-
-  console.log(activeSlide);
   return styles;
 };
 
@@ -59,7 +53,10 @@ export const Slider: React.FC<Props> = props => {
           <Image
             fluid={image.node.childImageSharp.fluid}
             alt={image.node.base.split('.')[0]}
-            style={{ height: '300px' }}
+            style={{ height: '350px' }}
+            imgStyle={{
+              objectPosition: '50% 70%'
+            }}
           />
         </SliderItem>
       ))}

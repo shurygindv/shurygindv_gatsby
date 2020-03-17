@@ -61,8 +61,8 @@ typings/
 public
 
 
-src/images/slider/*
-src/images/background/*
+src/assets/*
+
 # Mac files
 .DS_Store
 

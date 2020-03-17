@@ -13,7 +13,7 @@ export const useSliderImages = () => {
           node {
             base
             childImageSharp {
-            fluid {
+            fluid(quality: 100) {
                 ...GatsbyImageSharpFluid
               }
             }
